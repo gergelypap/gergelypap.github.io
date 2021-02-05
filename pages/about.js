@@ -1,6 +1,11 @@
+import Head from "next/head";
+
 export default function About() {
   return (
     <>
+      <Head>
+        <title>About @gpap</title>
+      </Head>
       <h1>About me</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem illo

@@ -4,9 +4,17 @@ import matter from "gray-matter";
 import getPostFilenames from "lib/getPostFilenames";
 import Post from "components/Post";
 import convertDate from "lib/date";
+import Head from "next/head";
 
 export default function PostPage({ slug, meta, content }) {
-  return <Post slug={slug} content={content} meta={meta} />;
+  return (
+    <>
+      <Head>
+        <title>{meta.title}</title>
+      </Head>
+      <Post slug={slug} content={content} meta={meta} />
+    </>
+  );
 }
 
 export async function getStaticPaths() {
