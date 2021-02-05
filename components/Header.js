@@ -20,20 +20,3 @@ export default function Header({ user }) {
     </header>
   );
 }
-
-export async function getStaticProps() {
-  const response = await fetch(`https://api.github.com/users/gergelypap`);
-  const user = await response.json();
-
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      user,
-    },
-  };
-}
