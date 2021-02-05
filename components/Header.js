@@ -1,7 +1,7 @@
 import styles from "components/Header.module.scss";
 import Nav from "components/Nav";
 
-export default function Header() {
+export default function Header({ user }) {
   return (
     <header className={styles.header}>
       <img
@@ -14,4 +14,21 @@ export default function Header() {
       <Nav />
     </header>
   );
+}
+
+export async function getStaticProps() {
+  const response = await fetch(`https://api.github.com/users/gergelypap`);
+  const user = await response.json();
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      user,
+    },
+  };
 }
