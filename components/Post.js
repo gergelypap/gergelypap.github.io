@@ -14,8 +14,7 @@ export default function Post({ slug, meta, content, isPreview = false }) {
         )}
       </h1>
       <time>{meta.created}</time>
-
-      <p>{meta.description}</p>
+      <p>{meta.intro}</p>
       {!isPreview && <ReactMarkdown children={content} />}
       {!isPreview && (
         <Link href="/">
