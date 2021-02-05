@@ -1,13 +1,18 @@
 import styles from "components/Header.module.scss";
 import Nav from "components/Nav";
+import Image from "next/image";
 
 export default function Header({ user }) {
   return (
     <header className={styles.header}>
-      <img
-        className={styles.avatar}
+      <Image
+        src="https://avatars.githubusercontent.com/u/5883922?v=4"
+        height={200}
+        width={200}
+        quality={60}
+        priority={true}
         alt="@gpap"
-        src="https://avatars.githubusercontent.com/u/5883922?s=460&u=5d8abc013f98535fc97aea91f79e93dea71e7f54&v=4"
+        className={styles.avatar}
       />
       <h1>@gpap</h1>
       <p>My developer blog. Because everybody has one.</p>
