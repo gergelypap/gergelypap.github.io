@@ -1,4 +1,6 @@
 import Link from "next/link";
+import RawHtml from "./RawHtml";
+import PostDate from "./PostDate";
 
 export default function Post({
   content,
@@ -8,7 +10,6 @@ export default function Post({
   title,
   isPreview = false,
 }) {
-  // console.log(content);
   return (
     <article>
       <h1>
@@ -20,9 +21,11 @@ export default function Post({
           title
         )}
       </h1>
-      <time>{created}</time>
+      <small>
+        <PostDate dateString={created} />
+      </small>
       <p>{intro}</p>
-      {!isPreview && <div dangerouslySetInnerHTML={{ __html: content }} />}
+      {!isPreview && <RawHtml html={content} />}
       {!isPreview && (
         <Link href="/">
           <a>← Back</a>

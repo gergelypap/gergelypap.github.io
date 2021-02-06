@@ -16,4 +16,13 @@ module.exports = {
   assertPrefix: isProd
     ? "https://cdn.statically.io/gh/gergelypap/gergelypap.github.io/gh-pages/"
     : "",
+  async redirects() {
+    return [
+      {
+        source: "/posts",
+        destination: "/",
+        permanent: true,
+      },
+    ];
+  },
 };

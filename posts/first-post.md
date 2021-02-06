@@ -1,7 +1,6 @@
 ---
-title: Welcome to my blog
-intro: This is the best blog ever.
-created: 2021-02-04
+title: Hello
+created: '2021-02-04'
 ---
 
-Sup?
+This is my first blog post, created with NextJS.

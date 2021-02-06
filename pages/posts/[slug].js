@@ -1,10 +1,11 @@
 import { getPost, getPostFilenames } from "lib/posts";
 import Post from "components/Post";
 import Head from "next/head";
+import Layout from "components/Layout";
 
 export default function PostPage({ post }) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>{post.title}</title>
       </Head>
@@ -14,8 +15,9 @@ export default function PostPage({ post }) {
         title={post.title}
         intro={post.intro}
         created={post.created}
+        content={post.content}
       />
-    </>
+    </Layout>
   );
 }
 

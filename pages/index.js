@@ -1,10 +1,10 @@
 import { getPosts } from "lib/posts";
 import Post from "components/Post";
+import Layout from "components/Layout";
 
 export default function Home({ posts }) {
-  console.log(posts);
   return (
-    <>
+    <Layout>
       <section>
         {posts.map((post) => (
           <Post
@@ -17,7 +17,7 @@ export default function Home({ posts }) {
           />
         ))}
       </section>
-    </>
+    </Layout>
   );
 }
 

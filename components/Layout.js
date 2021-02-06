@@ -16,9 +16,6 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <main>{children}</main>
-      <footer>
-        <small>© {new Date().getFullYear()} Whatever it means.</small>
-      </footer>
     </div>
   );
 }

@@ -1,26 +1,23 @@
 import Head from "next/head";
+import Layout from "components/Layout";
+import ExternalLink from "components/ExternalLink";
 
 export default function About() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>About @gpap</title>
       </Head>
       <h1>About me</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem illo
-        ipsa officiis perferendis sed! Accusantium deleniti harum maiores,
-        mollitia neque repellat veniam. Assumenda culpa dolor ducimus maxime
-        mollitia nesciunt nihil, quaerat quam quas quod, similique temporibus
-        vero vitae. A ab adipisci, aspernatur molestiae nisi odit quaerat
-        recusandae soluta voluptates voluptatum? Dolore, ducimus eos esse et ex
-        harum id molestias mollitia, necessitatibus nihil nisi pariatur qui
-        voluptates? Ab accusantium aliquid animi architecto aspernatur
-        blanditiis consectetur consequatur corporis culpa cum delectus
-        distinctio dolorem eum harum illum impedit inventore perspiciatis,
-        provident quibusdam quos recusandae reiciendis repellendus saepe sequi
-        sint tenetur totam veniam voluptatum!
+        I'm a full stack web developer, experienced in PHP and recently very
+        interested in the JS ecosytem, particularly React and NextJS.
       </p>
-    </>
+      <p>
+        This blog was built using the awesome{" "}
+        <ExternalLink href="https://nextjs.org/">NextJS</ExternalLink>{" "}
+        framework.
+      </p>
+    </Layout>
   );
 }
