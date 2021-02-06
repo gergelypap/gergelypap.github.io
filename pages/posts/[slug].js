@@ -1,30 +1,26 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import getPostFilenames from "lib/getPostFilenames";
+import { getPost, getPostFilenames } from "lib/posts";
 import Post from "components/Post";
-import convertDate from "lib/date";
 import Head from "next/head";
 
-export default function PostPage({ slug, meta, content }) {
+export default function PostPage({ post }) {
   return (
     <>
       <Head>
-        <title>{meta.title}</title>
+        <title>{post.title}</title>
       </Head>
-      <Post slug={slug} content={content} meta={meta} />
+      <Post
+        key={post.slug}
+        slug={post.slug}
+        title={post.title}
+        intro={post.intro}
+        created={post.created}
+      />
     </>
   );
 }
 
 export async function getStaticPaths() {
-  const filenames = getPostFilenames();
-  const paths = filenames.map((filename) => ({
-    params: {
-      slug: filename.replace(".md", ""),
-    },
-  }));
-
+  const paths = getPostFilenames();
   return {
     paths,
     fallback: false,
@@ -32,18 +28,10 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const markdownWithMetadata = fs
-    .readFileSync(path.join("posts", params.slug + ".md"))
-    .toString();
-
-  const { data, content } = matter(markdownWithMetadata);
-  data.created = convertDate(data.created);
-
+  const post = await getPost(params.slug);
   return {
     props: {
-      slug: params.slug,
-      meta: data,
-      content,
+      post,
     },
   };
 }

@@ -1,7 +1,8 @@
-import getPosts from "lib/posts";
+import { getPosts } from "lib/posts";
 import Post from "components/Post";
 
 export default function Home({ posts }) {
+  console.log(posts);
   return (
     <>
       <section>
@@ -9,8 +10,9 @@ export default function Home({ posts }) {
           <Post
             key={post.slug}
             slug={post.slug}
-            content={post.content}
-            meta={post.meta}
+            title={post.title}
+            intro={post.intro}
+            created={post.created}
             isPreview={true}
           />
         ))}
